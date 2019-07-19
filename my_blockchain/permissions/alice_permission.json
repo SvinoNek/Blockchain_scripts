@@ -1,0 +1,18 @@
+{
+    "threshold": 1,
+    "keys": [
+      {
+        "key": "EOS8Maks8s71cBxp6eJ1QTn6a6dhsV7Xz91sAKccyZne4GkG9WNDo",
+        "weight": 1
+      }
+    ],
+    "accounts": [
+      {
+        "permission": {
+          "actor": "dragonstake",
+          "permission": "eosio.code"
+        },
+        "weight": 1
+      }
+    ]
+  }
