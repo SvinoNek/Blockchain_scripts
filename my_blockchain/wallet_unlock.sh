@@ -1,4 +1,3 @@
 #!/bin/bash
 
-cd /home/devcomp34/DragonTokenMine/my_blockchain/
-cat ./default_wallet_password.txt | cleos wallet unlock
+cat /home/devcomp34/blockhain_scripts/my_blockchain/password.txt | cleos wallet unlock
