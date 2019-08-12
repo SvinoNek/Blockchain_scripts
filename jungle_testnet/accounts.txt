@@ -1,0 +1,7 @@
+
+name:dragonstake1
+public:EOS8mwsns8PUfPJFY7naJjrgRk9oufLEvCHUzCNQRTCGtKYB1qRQN
+private:5KFLfdpzQbpm77aaf5234VMx7gdPNtPGAc7F5R94Vom5GUy1xnt
+
+ cleos wallet import --private-key 5KFLfdpzQbpm77aaf5234VMx7gdPNtPGAc7F5R94Vom5GUy1xnt
+ cleos -u http://jungle2.cryptolions.io:80 set contract dragonstake1 /home/devcomp34/git/dragonstake/ -p dragonstake1@active 

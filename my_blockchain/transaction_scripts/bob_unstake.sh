@@ -3,13 +3,15 @@
 echo BOB\'\ BALANCE
 cleos get currency balance eosdragontkn bob
 echo BOB\'\ STAKES
-cleos get table dragonstake bob stakes
+cleos get table dragonstake bob accountstake
 echo STAKES_TOTAL
-cleos get table dragonstake dragonstake stakesstats
-cleos push action dragonstake unstake '["bob","bob","1.0000 DRAGON"]' -p bob
+cleos get table dragonstake dragonstake stakestats
+cleos push action dragonstake unstake '["bob","1.0000 DRAGON"]' -p bob
 echo BOB\'\ BALANCE
 cleos get currency balance eosdragontkn bob
 echo BOB\'\ STAKES
-cleos get table dragonstake bob stakes
+cleos get table dragonstake bob accountstake
 echo STAKES_TOTAL
-cleos get table dragonstake dragonstake stakesstats
+cleos get table dragonstake dragonstake stakestats
+echo BOB\'\ LOG
+cleos get table dragonstake bob unstakelog
