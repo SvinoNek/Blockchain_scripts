@@ -1,4 +1,6 @@
 #!/bin/bash
+#this script creates eos node and writes useful data to wallet.info 
+
 #remove existing wallet
 pkill keosd
 rm -rf ~/eosio-wallet
@@ -44,6 +46,7 @@ cleos create account eosio alice $PUBKEY
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
+#create wallet.info json file
 echo { > $DIR/wallet.info
 echo \"wallet_pass\":\"$PASS\", >> $DIR/wallet.info
 echo \"pubkey\":\"$PUBKEY\" >> $DIR/wallet.info
