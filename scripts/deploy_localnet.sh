@@ -1,10 +1,20 @@
 #!/bin/bash
 
-#git for-each-ref --format='%(refname:short)' --sort=-committerdate refs/remotes/origin/ | head -n 1
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-# -d is true if -d F exists and is a directory
-#for D in */; do my_command; done
+LOG=${DIR}/deployment.log
+#erase file contents
+> $LOG
+${DIR}/unlock.sh
 
-->deploy system contracts
+echo "deploying system contracts"
+for D in $DIR/../system_contracts/*/; do 
+    cd ${D}
+    ./scripts/deploy_localnet.sh &>> ${LOG} 
+done
 
-->deploy our contracts
+echo "deploying dragonoption contracts"
+for D in $DIR/../contracts/*/; do 
+    cd ${D}
+    ./scripts/deploy_localnet.sh $(git for-each-ref --format='%(refname:short)' --sort=-committerdate refs/remotes/origin/ | head -n 1) &>> ${LOG}
+done

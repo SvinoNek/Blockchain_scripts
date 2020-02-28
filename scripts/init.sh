@@ -1,6 +1,6 @@
 #!/bin/bash
 #this script creates eos node and writes useful data to wallet.info 
-
+set -e 
 #remove existing wallet
 pkill keosd
 rm -rf ~/eosio-wallet
@@ -13,6 +13,7 @@ echo pass = $PASS
 #unlock it
 cleos wallet open
 yes "$PASS" | cleos wallet unlock
+echo hello!
 #create key
 PUBKEY=$(cleos wallet create_key | grep -o "EOS\w*")
 echo pubkey = $PUBKEY
@@ -39,10 +40,6 @@ until curl http://127.0.0.1:8888/v1/chain/get_info
 do
   sleep 1s
 done
-
-#create our test accounts
-cleos create account eosio bob $PUBKEY
-cleos create account eosio alice $PUBKEY
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 

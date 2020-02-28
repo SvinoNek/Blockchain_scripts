@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cleos set contract dragonoption . --abi dragonoption.abi -p dragonoption@active
+cleos set contract dragonoption $(pwd) --abi dragonoption.abi -p dragonoption@active
